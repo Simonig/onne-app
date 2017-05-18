@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Checkout</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1 text-center>{{promo.name}}</h1>
+
+  <h3>Opciones:</h3>
+  <form #f="ngForm" (ngSubmit)="onCheckOut()">
+    <ion-list>
+      <ion-item *ngFor="let product of products; let i = index">
+        <ion-avatar item-left *ngIf="product.ingredient.photo">
+          <img src="{{product.ingredient.photo}}">
+        </ion-avatar>
+        <ion-label>{{product.name}} </ion-label>
+        <ion-select [(ngModel)]="product.ingredient" required name="{{i}}">
+          <ion-option *ngFor="let ing of product.options" [value]="ing">
+            {{ing.name}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <h1 item-left>Total</h1>
+        <h1 item-right>${{promo.price}}</h1>
+      </ion-item>
+    </ion-list>
+
+
+    <button type="submit" [disabled]="!f.valid" ion-button block>
+      Pagar
+    </button>
+  </form>
+</ion-content>

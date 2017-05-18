@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar text-center color="dark">
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Promociones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <ion-list>
+    <button ion-item *ngFor="let promo of promoCollection"
+            [navPush]="promoPage" [navParams]="promo">
+      <h2> {{promo.name}}</h2>
+      <p>{{promo.price | currency}}</p>
+
+    </button>
+  </ion-list>
+
+</ion-content>

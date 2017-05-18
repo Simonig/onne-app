@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="gold">Eventos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3 text-center>Proximos Eventos</h3>
+  <ion-list *ngFor="let event of events">
+    <button ion-item (click)="onLoadEvent(event)">
+      <ion-thumbnail item-left>
+        <img src="assets/img/nikkita.jpg">
+      </ion-thumbnail>
+      <h2> {{event.nombre_evento}}</h2>
+      <p>{{event.fecha}}</p>
+
+    </button>
+
+  </ion-list>
+
+</ion-content>

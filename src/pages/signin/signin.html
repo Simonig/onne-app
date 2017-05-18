@@ -1,0 +1,29 @@
+
+<ion-content padding>
+<!--
+  <form #f="ngForm" (ngSubmit)="onSignin(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Mail</ion-label>
+        <ion-input type="email" ngModel name="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" ngModel name="password" [minlength]="6" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <button class="btn-onne" type="submit" [disabled]="!f.valid">Iniciar Sesion</button>
+  </form>-->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <button class="btn-onne" icon-left (click)="facebookLogin()">
+          <ion-icon name="logo-facebook"></ion-icon>
+          Iniciar Sesión
+
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

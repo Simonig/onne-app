@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Checkout</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1 text-center>{{product.nombre_producto_carta}}</h1>
+
+  <form #f="ngForm" (ngSubmit)="onCheckOut()">
+  <ion-list>
+    <ion-item-sliding *ngFor="let prod of products; let i = index">
+    <ion-item>
+      <ion-avatar item-left *ngIf="prod.photo">
+        <img src="{{prod.photo}}">
+      </ion-avatar>
+      <ion-label>{{' #'+ i}} </ion-label>
+      <ion-select [(ngModel)]="prod.insumo" required name="{{i}}">
+        <ion-option *ngFor="let insumo of product.insumos" [value]="insumo">
+          {{insumo.nombre_insumo}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+      <ion-item-options *ngIf="ingSelected.length > 1" side="right">
+        <button ion-button color="danger" type="button"  (click)="deleteProduct(i, ingSelected)">
+          <ion-icon name="close"></ion-icon>
+          Eliminar
+        </button>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-grid text-center>
+    <ion-row>
+      <ion-col>
+        <button ion-button block color="dark" icon-right type="button" (click)="onAddItem()">
+          Agregar
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item>
+      <h1 item-left>Total</h1>
+      <h1 item-right>${{price}}</h1>
+    </ion-item>
+  </ion-list>
+
+
+  <button type="submit" [disabled]="!f.valid" ion-button class="btn-onne">
+    Pagar
+  </button>
+  </form>
+</ion-content>

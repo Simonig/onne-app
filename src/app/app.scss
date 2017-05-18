@@ -1,0 +1,78 @@
+// http://ionicframework.com/docs/v2/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.btn-onne {
+  color: #0c0c0c;
+  background-color: rgba(176, 149, 92, 0.7);
+  border-color: transparent;
+  width: 100%;
+  border-radius: 20px;
+  height: 40px;
+  -webkit-box-shadow: 0 0 12px 1px #000;
+  box-shadow: 0 0 12px 1px #000;
+  font-size: 17px;
+  margin: 13px 0px;
+}
+
+.btn-onne:hover {
+  color: #0c0c0c;
+  background-color: #b0955c;
+  border-color: #b0955c;
+  -webkit-box-shadow: 0 0 12px 1px #000;
+  box-shadow: 0 0 12px 1px #000;
+}
+
+.btn-onne:focus {
+  color: #0c0c0c;
+  background-color: rgba(176, 149, 92, 0.7);
+  border-color: transparent;
+  -webkit-box-shadow: 0 0 12px 1px #000;
+  box-shadow: 0 0 12px 1px #000;
+}
+
+.btn-onne:active:focus, .btn-onne:active:hover {
+  color: #0c0c0c;
+  background-color: #b0955c;
+  border-color: #b0955c;
+  -webkit-box-shadow: 0 0 12px 1px #000;
+  box-shadow: 0 0 12px 1px #000;
+}
+
+.conten-btn-r-i {
+  margin: 40px;
+}
+
+.toolbar-ios-dark {
+  button {
+    color: $gold !important;
+  }
+
+  .toolbar-title-ios {
+    color: $gold !important;
+  }
+
+}
+
+.toolbar-md-dark {
+  button {
+    color: $gold !important;
+  }
+
+  .toolbar-title-md {
+    color: $gold !important;
+
+  }
+}
