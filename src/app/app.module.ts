@@ -24,57 +24,59 @@ import {EventsService} from "../services/events";
 import {AuthService} from "../services/auth";
 import {HttpModule} from "@angular/http";
 import {Facebook} from "@ionic-native/facebook";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 @NgModule({
-    declarations: [
-        MyApp,
-        HomePage,
-        EventsPage,
-        EventPage,
-        ProductsPage,
-        PromotionsPage,
-        PromotionPage,
-        ProductPage,
-        SignupPage,
-        SigninPage,
-        ProfilePage,
-        OrdersPage,
-        PaymentPage,
-        EventInfoPage,
-        CheckoutPage
-    ],
-    imports: [
-        BrowserModule,
-        HttpModule,
-        IonicModule.forRoot(MyApp)
-    ],
-    bootstrap: [IonicApp],
-    entryComponents: [
-        MyApp,
-        HomePage,
-        EventsPage,
-        EventPage,
-        ProductsPage,
-        PromotionsPage,
-        ProductPage,
-        SignupPage,
-        SigninPage,
-        PromotionPage,
-        ProfilePage,
-        OrdersPage,
-        PaymentPage,
-        EventInfoPage,
-        CheckoutPage
-    ],
-    providers: [
-        StatusBar,
-        SplashScreen,
-        Facebook,
-        {provide: ErrorHandler, useClass: IonicErrorHandler},
-        AuthService,
-        EventsService,
-        OneClickService
-    ]
+  declarations: [
+    MyApp,
+    HomePage,
+    EventsPage,
+    EventPage,
+    ProductsPage,
+    PromotionsPage,
+    PromotionPage,
+    ProductPage,
+    SignupPage,
+    SigninPage,
+    ProfilePage,
+    OrdersPage,
+    PaymentPage,
+    EventInfoPage,
+    CheckoutPage
+  ],
+  imports: [
+    BrowserModule,
+    HttpModule,
+    IonicModule.forRoot(MyApp)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    EventsPage,
+    EventPage,
+    ProductsPage,
+    PromotionsPage,
+    ProductPage,
+    SignupPage,
+    SigninPage,
+    PromotionPage,
+    ProfilePage,
+    OrdersPage,
+    PaymentPage,
+    EventInfoPage,
+    CheckoutPage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    Facebook,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService,
+    EventsService,
+    OneClickService,
+    InAppBrowser
+  ]
 })
 export class AppModule {
 }

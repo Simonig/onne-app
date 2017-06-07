@@ -1,18 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController, NavParams} from "ionic-angular";
-import {Product} from "../../data/product.interface";
+import {Product, CheckoutProduct} from "../../data/product.interface";
 import {Ingredient} from "../../data/ingredient.interface";
 import {CheckoutPage} from "../checkout/checkout";
+import {OneClickService} from "../../services/oneclick";
 
 @Component({
   selector: 'page-product',
   templateUrl: 'product.html'
 })
 export class ProductPage implements OnInit {
-  constructor(private navParams: NavParams, private navCtrl: NavController) {
+  constructor(private navParams: NavParams, private navCtrl: NavController, private oneCLickService: OneClickService) {
   }
 
   ingSelected: Ingredient[] = [{name: "", photo: ""}];
+  productChk: CheckoutProduct;
 
   onAddItem() {
     const newProduct = Object.assign({}, this.product);
@@ -29,7 +31,19 @@ export class ProductPage implements OnInit {
 
   onCheckOut() {
     //const item = new Item(this.product.id);
-    this.navCtrl.push(CheckoutPage)
+    this.productChk = {
+      "amount": this.price,
+      "buyOrder": 1,
+      "tbkUser": "string",
+      "username": "string"
+    };
+
+    this.oneCLickService.payProduct(this.productChk).subscribe(
+      res => {
+        alert(res);
+        this.navCtrl.push(CheckoutPage)
+      }
+    )
   }
 
 
@@ -39,7 +53,7 @@ export class ProductPage implements OnInit {
 
   ngOnInit() {
     let product = this.navParams.data;
-    this.product = Object.assign({},product);
+    this.product = Object.assign({}, product);
     this.products.push(product);
     this.price = product.precio;
     console.log(product)

@@ -6,32 +6,47 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class OneClickService {
-    constructor(private http: Http) {
+  constructor(private http: Http) {
 
-    }
+  }
 
-    url = 'oneclick';
+  url = 'oneclick';
 
-    innitInscription(): Observable<any> {
+  innitInscription(): Observable<any> {
 
-        const data = {
-            email: "simon.ig13@gmail.com",
-            username: "Simon Iribarren",
-            responseURL: "http://onne.cl:10010/v1/oneclick/finishInscription"
-        };
-        return this.http.post(baseUrl + this.url + '/initInscription', data)
-            .map(url => {
-                return url
-            })
-    }
+    const data = {
+      email: "simon.ig13@gmail.com",
+      username: "Simon Iribarren",
+      responseURL: "http://onne.cl:10010/v1/oneclick/finishInscription"
+    };
+    return this.http.post(baseUrl + this.url + '/initInscription', data)
+      .map(res => {
+        const response = res.json();
+        console.log(response);
+        return response
+      })
+  }
 
-    payProduct(products):Observable<any>{
+  getCards(): Observable<any> {
+    const userId = 1;
+    return this.http.get(baseUrl + 'users/' + userId + '/getCards')
+      .map(res => {
+        const response = res.json()
+        console.log(response);
+        return response
+      })
+  }
 
-      return this.http.post(baseUrl + this.url + '/initInscription', products)
-        .map(url => {
-          return url
-        })
-    }
+
+  payProduct(products): Observable<any> {
+
+
+
+    return this.http.post(baseUrl + this.url + '/authorize', products)
+      .map(url => {
+        return url.json().body
+      })
+  }
 
 
 }

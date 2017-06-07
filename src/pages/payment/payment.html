@@ -12,16 +12,22 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <div>
-
+    <ion-list-header>
+      Métodos de pago
+    </ion-list-header>
     <ion-list>
-      <ion-item>
+      <ion-item *ngFor="let card of creditCards">
         <ion-icon name="card" item-left=""></ion-icon>
-        XXXXX158
+        {{card.ult_cuatro_digitos_medio_pago}}
       </ion-item>
     </ion-list>
-    <button (click)="addCard()" class="btn-onne" ion-button block>Agregar Tarjeta</button>
+    <button (click)="addCard()" color="light" ion-button full>Agregar Tarjeta</button>
+
+
+    <!--<button  class="btn-onne" ion-button block>Agregar Tarjeta</button>-->
   </div>
+
 
 </ion-content>
